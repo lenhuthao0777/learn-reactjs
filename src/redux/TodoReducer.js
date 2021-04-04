@@ -16,26 +16,19 @@ const initialState = {
 			completed: false,
 		},
 	],
-	isLoading: false,
 };
 
 export const TodoReducer = (state = initialState, action) => {
+	console.log(action);
 	switch (action.type) {
 		case "DELETE": {
-			// let newData = [...state.data];
 			const data = state.data.filter((todo) => todo.id !== action.payload.id);
 			console.log(data);
 			return { ...state, data };
 		}
-		case "CHANGE_STATUS": {
-			const { id } = action.payload.id;
-			// const data = [...state.data];
-			// const index = data.findIndex((item) => item.id === id);
-			// data[index].completed = !data[index].completed;
-			// return { ...state, data };
-
-			const data = state.data.map((item) => {
-                console.log(item.completed);
+		case "STATUS": {
+			const id = action.payload.id;
+			let data = state.data.map((item) => {
 				if (item.id === id) {
 					return { ...item, completed: !item.completed };
 				}
@@ -43,7 +36,11 @@ export const TodoReducer = (state = initialState, action) => {
 			});
 			return { ...state, data };
 		}
-
+		case "ADD": {
+			let newArr = action.payload;
+			state.data.push(newArr);
+			return { ...state, newArr };
+		}
 		default:
 			return state;
 	}

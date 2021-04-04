@@ -1,7 +1,7 @@
 // import Baitap2 from "./baitap2";
 // import Lifecycle from "./lifecycle";
 
-import Count from "./countRedux";
+// import Count from "./countRedux";
 import TodoList from "./todoList/TodoList";
 
 // import BauCua from "./baucua";
