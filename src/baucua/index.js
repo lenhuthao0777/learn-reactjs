@@ -49,27 +49,27 @@ export default function BauCua() {
 		},
 	]);
 
-	useEffect(() => {
-		let tongDiem = 0;
-		const danhsachdatduoc = danhSachCuoc.filter((item) => item.diemcuoc);
-		console.log(danhsachdatduoc);
-		danhsachdatduoc.forEach((item) => {
-			const found = xucsac.find((xucxac) => xucxac.ten === item.ten);
-			if (found) {
-				tongDiem += item.diemcuoc;
-			}
-		});
+	// useEffect(() => {
+	// 	let tongDiem = 0;
+	// 	const danhsachdatduoc = danhSachCuoc.filter((item) => item.diemcuoc);
+	// 	console.log(danhsachdatduoc);
+	// 	danhsachdatduoc.forEach((item) => {
+	// 		const found = xucsac.find((xucxac) => xucxac.ten === item.ten);
+	// 		if (found) {
+	// 			tongDiem += item.diemcuoc;
+	// 		}
+	// 	});
 
-		xucsac.forEach((item) => {
-			const found = danhsachdatduoc.find((cuoc) => cuoc.ten === item.ten);
-			if (found) {
-				tongDiem += found.diemcuoc;
-			}
-		});
-		const newDanhSachCuoc = danhSachCuoc.map((item) => ({ ...item, diemcuoc: 0 }));
-		setTienThuong(tienThuong + tongDiem);
-		setDanhSachCuoc(newDanhSachCuoc);
-	}, [xucsac]);
+	// 	xucsac.forEach((item) => {
+	// 		const found = danhsachdatduoc.find((cuoc) => cuoc.ten === item.ten);
+	// 		if (found) {
+	// 			tongDiem += found.diemcuoc;
+	// 		}
+	// 	});
+	// 	const newDanhSachCuoc = danhSachCuoc.map((item) => ({ ...item, diemcuoc: 0 }));
+	// 	setTienThuong(tienThuong + tongDiem);
+	// 	setDanhSachCuoc(newDanhSachCuoc);
+	// }, [xucsac]);
 	const handelCuoc = (item, status) => {
 		// const newDanhSachCuoc = danhSachCuoc.map((cuoc) => {
 		// 	if (cuoc.ten === item.ten) {

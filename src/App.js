@@ -1,7 +1,10 @@
 // import Baitap2 from "./baitap2";
 // import Lifecycle from "./lifecycle";
 
-import BauCua from "./baucua";
+import Count from "./countRedux";
+import TodoList from "./todoList/TodoList";
+
+// import BauCua from "./baucua";
 // import Demohook from "./hook/Demohook";
 // import Lifecycel from "./hook/Lifecycel";
 
@@ -18,7 +21,9 @@ function App() {
 			{/* <State/> */}
 			{/* <Lifecycel/>	 */}
 			{/* <Demohook /> */}
-			<BauCua></BauCua>
+			{/* <BauCua></BauCua> */}
+			{/* <Count/> */}
+			<TodoList/>
 		</div>
 	);
 }
