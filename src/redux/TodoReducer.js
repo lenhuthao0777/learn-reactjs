@@ -1,3 +1,5 @@
+import { FILTER_TODO, ADD, DELETE, STATUS } from "./constants/TodoConstants";
+
 const initialState = {
 	data: [
 		{
@@ -13,20 +15,22 @@ const initialState = {
 		{
 			id: 3,
 			name: "cau ca",
-			completed: false,
+			completed: true,
 		},
 	],
+	Loading: false,
+	filter: "all",
 };
 
 export const TodoReducer = (state = initialState, action) => {
 	console.log(action);
 	switch (action.type) {
-		case "DELETE": {
+		case DELETE: {
 			const data = state.data.filter((todo) => todo.id !== action.payload.id);
 			console.log(data);
 			return { ...state, data };
 		}
-		case "STATUS": {
+		case STATUS: {
 			const id = action.payload.id;
 			let data = state.data.map((item) => {
 				if (item.id === id) {
@@ -36,10 +40,15 @@ export const TodoReducer = (state = initialState, action) => {
 			});
 			return { ...state, data };
 		}
-		case "ADD": {
-			let newArr = action.payload;
-			state.data.push(newArr);
-			return { ...state, newArr };
+		case ADD: {
+			// let newArr = action.payload;
+			// state.data.push(newArr);
+			const data = [...state.data, { ...action.payload }];
+			return { ...state, data };
+		}
+		case FILTER_TODO: {
+			const { status } = action.payload;
+			return { ...state, filter: status };
 		}
 		default:
 			return state;

@@ -2,7 +2,7 @@
 // import Lifecycle from "./lifecycle";
 
 // import Count from "./countRedux";
-import TodoList from "./todoList/TodoList";
+// import TodoList from "./todoList/TodoList";
 
 // import BauCua from "./baucua";
 // import Demohook from "./hook/Demohook";
@@ -11,7 +11,7 @@ import TodoList from "./todoList/TodoList";
 // import State from "./hook/State";
 
 // import Baitap3 from "./userManagerment";
-
+import Courses from "./courses/index"
 function App() {
 	return (
 		<div className="App">
@@ -23,7 +23,8 @@ function App() {
 			{/* <Demohook /> */}
 			{/* <BauCua></BauCua> */}
 			{/* <Count/> */}
-			<TodoList/>
+			{/* <TodoList/> */}
+			<Courses/>
 		</div>
 	);
 }
